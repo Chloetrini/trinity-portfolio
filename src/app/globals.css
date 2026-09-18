@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+* {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+@theme inline {
+  --font-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-amber: var(--amber);
+  --color-pink: var(--pink);
+}
+
+/*
+  Design tokens.
+
+  Dark is the default brand look; .light overrides it. Set inline (not via
+  a blocking <script>, see layout.tsx) before first paint to avoid a flash.
+*/
+:root {
+  color-scheme: dark;
+  --background: #0a0b0d;
+  --foreground: #eceef1;
+  --card: #121316;
+  --card-2: #191b1f;
+  --border: #26282e;
+  --border-soft: #1c1e23;
+  --muted-foreground: #9aa0ab;
+  --faint: #5f6570;
+  --accent: #5eead4;
+  --accent-strong: #2dd4bf;
+  --accent-contrast: #04120f;
+  --amber: #f5c26b;
+  --pink: #f0a8d0;
+}
+
+:root.light {
+  color-scheme: light;
+  --background: #f7f7f5;
+  --foreground: #14151a;
+  --card: #ffffff;
+  --card-2: #f0f0ee;
+  --border: #e2e2df;
+  --border-soft: #ececea;
+  --muted-foreground: #55585f;
+  --faint: #8a8d94;
+  --accent: #0f8f7d;
+  --accent-strong: #0c7568;
+  --accent-contrast: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.caret-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: scroll-left 32s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes float-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float-bob {
+  animation: float-bob 4.5s ease-in-out infinite;
+}

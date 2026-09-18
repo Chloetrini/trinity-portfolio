@@ -6,8 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Trinity Egbukwu · Full-Stack Developer",
-  description: "Trinity Egbukwu — Full-stack developer. First Class Honours grad turned software engineer.",
+  title: "Trinity Egbukwu · Software Developer",
+  description: "Trinity Egbukwu — Software developer. Science grad turned software developer.",
   icons: { icon: "/favicon.svg" },
 };
 

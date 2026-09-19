@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { IntroSplash } from "@/components/layout/IntroSplash";
 import { CursorGlow } from "@/components/layout/CursorGlow";
 import { FloatingContactCard } from "@/components/layout/FloatingContactCard";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="relative z-1">{children}</main>
             <Footer />
             <FloatingContactCard />
+            <ScrollToTop />
           </div>
         </ThemeProvider>
       </body>

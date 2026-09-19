@@ -73,9 +73,9 @@ export default function HomePage() {
               <Reveal
                 key={p.title}
                 delay={i * 100}
-                className="group rounded-[14px] border border-border bg-card p-6.5 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-[0_20px_45px_-25px_var(--accent)]"
+                className="group rounded-[14px] border border-border bg-card p-6.5 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-[0_20px_45px_-25px_var(--accent)] active:-translate-y-1.5 active:border-accent/40 active:shadow-[0_20px_45px_-25px_var(--accent)]"
               >
-                <div className="mb-4 flex h-10.5 w-10.5 items-center justify-center rounded-[10px] bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
+                <div className="mb-4 flex h-10.5 w-10.5 items-center justify-center rounded-[10px] bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110 group-active:scale-110">
                   <p.icon size={20} />
                 </div>
                 <h4 className="mb-2.5 text-[17px] font-semibold">{p.title}</h4>
@@ -96,7 +96,10 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className={cn(buttonVariants(), "transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--accent)]")}
+              className={cn(
+                buttonVariants(),
+                "transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--accent)] active:-translate-y-0.5 active:shadow-[0_10px_30px_-12px_var(--accent)]",
+              )}
             >
               Say hello →
             </Link>

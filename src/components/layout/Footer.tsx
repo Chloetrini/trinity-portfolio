@@ -16,11 +16,11 @@ export function Footer() {
               </span>
               <span className="whitespace-nowrap">
                 Trinity<span className="text-muted-foreground font-normal">.dev</span>
-                <span className="text-blue font-normal">{"</>"}</span>
+                <span className="text-blue font-normal">{" / >"}</span>
               </span>
             </Link>
             <p className="mt-3.5 max-w-[34ch] text-sm text-muted-foreground">
-              Full-stack developer building fast, usable products — from event platforms to scouting
+              Softare developer building fast, usable products — from event platforms to scouting
               dashboards. First-class honours grad turned engineer.
             </p>
           </div>
@@ -63,7 +63,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border-soft pt-6 font-mono text-[12.5px] text-faint">
-          <span>© {new Date().getFullYear()} Trinity Egbukwu. Built with React, TypeScript &amp; Tailwind.</span>
+          <span>© {new Date().getFullYear()} Trinity Egbukwu. Built with React,Next.js, TypeScript &amp; Tailwind.</span>
           <div className="flex gap-2.5">
             <a
               href={GITHUB_URL}

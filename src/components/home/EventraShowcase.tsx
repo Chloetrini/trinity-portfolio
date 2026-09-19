@@ -29,7 +29,7 @@ export function EventraShowcase() {
         {/* laptop + phone, overlapping, both scaled down together on small screens instead of stacking or disappearing */}
         <Reveal className="relative mt-16 flex items-end justify-center gap-0 py-6 sm:py-10">
           {/* laptop */}
-          <div className="relative mr-[-18px] w-full max-w-[220px] transition-transform duration-500 hover:-translate-y-2 sm:mr-[-31px] sm:max-w-[380px] md:mr-[-60px] md:max-w-[720px]">
+          <div className="relative mr-[-18px] w-full max-w-[220px] transition-transform duration-500 hover:-translate-y-2 active:-translate-y-2 sm:mr-[-31px] sm:max-w-[380px] md:mr-[-60px] md:max-w-[720px]">
             <div className="rounded-t-[10px] rounded-b-[3px] border-[5px] border-b-0 border-[#1c1e23] bg-[#050506] p-1 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.8)] sm:rounded-t-[14px] sm:rounded-b-[4px] sm:border-[10px] sm:p-2 sm:shadow-[0_40px_90px_-30px_rgba(0,0,0,0.8)]">
               <div className="aspect-16/10 overflow-hidden rounded-[3px] bg-black sm:rounded-[6px]">
                 <img
@@ -44,7 +44,7 @@ export function EventraShowcase() {
           </div>
 
           {/* phone, overlapping the laptop's bottom-right corner */}
-          <div className="animate-float-bob relative z-1 w-[clamp(70px,24vw,240px)] shrink-0 transition-transform duration-500 hover:-translate-y-2">
+          <div className="animate-float-bob relative z-1 w-[clamp(70px,24vw,240px)] shrink-0 transition-transform duration-500 hover:-translate-y-2 active:-translate-y-2">
             <div
               className="relative w-full rounded-[18px] bg-[#050506] p-1 shadow-[0_15px_35px_-15px_rgba(0,0,0,0.85)] ring-1 ring-[#2a2c31] sm:rounded-[42px] sm:p-3 sm:shadow-[0_35px_80px_-25px_rgba(0,0,0,0.85)] sm:ring-2"
               style={{ aspectRatio: "430 / 932" }}

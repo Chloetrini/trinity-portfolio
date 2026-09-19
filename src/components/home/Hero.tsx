@@ -38,19 +38,36 @@ export function Hero() {
           <Reveal delay={240} className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/projects"
-              className={cn(buttonVariants(), "transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--accent)]")}
+              className={cn(
+                buttonVariants(),
+                "transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--accent)] active:-translate-y-0.5 active:shadow-[0_10px_30px_-12px_var(--accent)]",
+              )}
             >
               View my work
             </Link>
             <Link
               href="/contact"
-              className={cn(buttonVariants({ variant: "ghost" }), "transition-transform hover:-translate-y-0.5")}
+              className={cn(buttonVariants({ variant: "ghost" }), "transition-transform hover:-translate-y-0.5 active:-translate-y-0.5")}
             >
               Get in touch
             </Link>
           </Reveal>
 
-          
+          <Reveal delay={320} className="mt-11 flex flex-wrap gap-7">
+            {STATS.map((s) => (
+              <div key={s.label} className="flex flex-col gap-1 transition-transform hover:-translate-y-0.5 active:-translate-y-0.5">
+                <span className="font-mono text-[22px] font-semibold">{s.num}</span>
+                <span className="text-[12.5px] text-faint">{s.label}</span>
+              </div>
+            ))}
+          </Reveal>
+
+          <Reveal delay={400}>
+            <p className="mt-8 max-w-[60ch] text-[13.5px] text-faint">
+              Off the clock, I go by Chloe — a die-hard Manchester United fan who doesn&apos;t miss an F1 race
+              weekend (Ferrari, always).
+            </p>
+          </Reveal>
         </div>
 
         <Reveal delay={200}>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Download } from "lucide-react";
+import { Eye } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
@@ -27,13 +27,14 @@ export function Navbar() {
   return (
     <>
       <nav className="sticky top-0 z-100 h-[72px] border-b border-border-soft bg-background/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-6 px-7">
-          <Link href="/" className="flex items-center gap-3 font-mono text-[15px] font-semibold">
-            <span className="flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-accent text-[14px] font-bold text-accent-contrast shadow-[0_6px_20px_-6px_var(--accent)]">
+        <div className="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-7">
+          <Link href="/" className="flex min-w-0 items-center gap-2.5 font-mono text-[13.5px] font-semibold sm:gap-3 sm:text-[15px]">
+            <span className="flex h-8.5 w-8.5 shrink-0 items-center justify-center rounded-[10px] bg-accent text-[13px] font-bold text-accent-contrast shadow-[0_6px_20px_-6px_var(--accent)] sm:h-[38px] sm:w-[38px] sm:text-[14px]">
               ET
             </span>
-            <span>
+            <span className="whitespace-nowrap">
               Trinity<span className="text-muted-foreground font-normal">.dev</span>
+              <span className="text-blue font-normal">{" / >"}</span>
             </span>
           </Link>
 
@@ -57,11 +58,12 @@ export function Navbar() {
             <ThemeToggle />
             <a
               href={CV_URL}
-              download
-              aria-label="Download CV"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Resume"
               className="hidden h-9.5 w-9.5 items-center justify-center rounded-[10px] border border-border bg-card text-muted-foreground transition-colors hover:text-foreground hover:border-faint sm:flex"
             >
-              <Download size={17} />
+              <Eye size={17} />
             </a>
             <a
               href={GITHUB_URL}
@@ -78,40 +80,88 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              aria-label="Open menu"
-              className="flex h-9.5 w-9.5 items-center justify-center rounded-[10px] border border-border bg-card md:hidden"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              className="relative flex h-9.5 w-9.5 items-center justify-center rounded-[10px] border border-border bg-card md:hidden"
             >
-              {open ? <X size={18} /> : <Menu size={18} />}
+              <span className="relative flex h-4 w-[18px] flex-col items-center justify-center">
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-full rounded-full bg-foreground transition-all duration-300 ease-out",
+                    open ? "translate-y-0 rotate-45" : "-translate-y-[6px] rotate-0",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-full rounded-full bg-foreground transition-all duration-200 ease-out",
+                    open ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-[1.5px] w-full rounded-full bg-foreground transition-all duration-300 ease-out",
+                    open ? "translate-y-0 -rotate-45" : "translate-y-[6px] rotate-0",
+                  )}
+                />
+              </span>
             </button>
           </div>
         </div>
       </nav>
 
-      {open && (
-        <div className="fixed inset-x-0 top-[72px] bottom-0 z-99 flex flex-col gap-1 overflow-y-auto bg-background px-7 py-5 md:hidden">
-          {NAV_LINKS.map((link) => (
+      {/* mobile panel — full-screen, slides up from the bottom */}
+      <div
+        aria-hidden={!open}
+        className={cn(
+          "fixed inset-0 z-99 flex flex-col overflow-hidden bg-background px-8 pb-8 transition-transform duration-500 md:hidden",
+          open ? "translate-y-0" : "translate-y-full",
+        )}
+        style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.94, 0.4, 1)" }}
+      >
+        {/* giant faint watermark, echoes the logo monogram */}
+        <span className="pointer-events-none absolute -right-3 bottom-16 font-mono text-[130px] leading-none font-bold text-foreground/5 select-none">
+          ET
+        </span>
+
+        <div className="relative flex flex-1 flex-col justify-center gap-1.5">
+          {NAV_LINKS.map((link, i) => (
             <Link
               key={link.to}
               href={link.to}
               onClick={() => setOpen(false)}
-              className="border-b border-border-soft py-4 text-xl font-medium"
+              style={{ transitionDelay: open ? `${110 + i * 70}ms` : "0ms" }}
+              className={cn(
+                "w-fit py-2.5 text-[clamp(34px,10vw,44px)] leading-tight font-semibold tracking-tight transition-all duration-[400ms] ease-out",
+                isActive(link.to) ? "text-accent" : "text-foreground",
+                open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+              )}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className={cn(buttonVariants(), "mt-5")} onClick={() => setOpen(false)}>
+        </div>
+
+        <div
+          className={cn(
+            "relative flex flex-wrap items-center gap-3 border-t border-border-soft pt-6 transition-all duration-[400ms] ease-out",
+            open ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
+          )}
+          style={{ transitionDelay: open ? "380ms" : "0ms" }}
+        >
+          <Link href="/contact" className={cn(buttonVariants())} onClick={() => setOpen(false)}>
             Let&apos;s talk →
           </Link>
           <a
             href={CV_URL}
-            download
-            className={cn(buttonVariants({ variant: "ghost" }), "mt-2.5")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(buttonVariants({ variant: "ghost" }))}
             onClick={() => setOpen(false)}
           >
-            Download CV <Download size={15} />
+            View Resume <Eye size={15} />
           </a>
         </div>
-      )}
+      </div>
     </>
   );
 }

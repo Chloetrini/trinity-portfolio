@@ -9,9 +9,11 @@ interface RevealProps {
   children: ReactNode;
   className?: string;
   as?: "div" | "section";
+  /** Stagger the entrance by this many milliseconds. */
+  delay?: number;
 }
 
-export function Reveal({ children, className, as = "div" }: RevealProps) {
+export function Reveal({ children, className, as = "div", delay = 0 }: RevealProps) {
   const { ref, isIn } = useReveal<HTMLDivElement>();
   const Tag = as;
 
@@ -23,6 +25,7 @@ export function Reveal({ children, className, as = "div" }: RevealProps) {
         isIn ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
         className,
       )}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </Tag>

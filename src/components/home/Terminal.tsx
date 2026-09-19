@@ -2,13 +2,26 @@
 
 import { useTypewriter } from "@/hooks/use-typewriter";
 
+const tech = (name: string) => `<span class="text-accent">'${name}'</span>`;
+const bool = (v: boolean) => `<span class="text-blue">${v}</span>`;
+
+const STACK = ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"];
+
 const SCRIPT = [
   '<span class="text-pink">const</span> developer = {\n',
   '  <span class="text-pink">name</span>: <span class="text-accent">\'Trinity Egbukwu\'</span>,\n',
   '  <span class="text-pink">role</span>: <span class="text-accent">\'Full-Stack Developer\'</span>,\n',
-  '  <span class="text-pink">stack</span>: [<span class="text-accent">\'React\'</span>, <span class="text-accent">\'TypeScript\'</span>, <span class="text-accent">\'Node.js\'</span>, <span class="text-accent">\'PostgreSQL\'</span>],\n',
+  '  <span class="text-pink">stack</span>: [',
+  STACK.map((name) => tech(name)).join(", "),
+  ', <span class="text-faint">/* + more */</span>],\n',
   '  <span class="text-pink">openTo</span>: <span class="text-accent">\'new opportunities\'</span>,\n',
-  "};\n\n",
+  `  <span class="text-pink">hardWorker</span>: ${bool(true)},\n`,
+  `  <span class="text-pink">problemSolver</span>: ${bool(true)},\n`,
+  `  <span class="text-pink">manUtdFan</span>: ${bool(true)},\n`,
+  '  <span class="text-pink">hireable</span>: <span class="text-pink">()</span> <span class="text-blue">=&gt;</span> {\n',
+  '    <span class="text-pink">return</span> <span class="text-pink">this</span>.hardWorker && <span class="text-pink">this</span>.problemSolver;\n',
+  "  },\n",
+  '<span class="text-blue">};</span>\n\n',
   '<span class="text-faint">// building things that ship.</span>',
 ].join("");
 

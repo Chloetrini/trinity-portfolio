@@ -14,8 +14,9 @@ export function Footer() {
               <span className="flex h-[38px] w-[38px] items-center justify-center rounded-[10px] bg-accent text-[14px] font-bold text-accent-contrast">
                 ET
               </span>
-              <span>
+              <span className="whitespace-nowrap">
                 Trinity<span className="text-muted-foreground font-normal">.dev</span>
+                <span className="text-blue font-normal">{"</>"}</span>
               </span>
             </Link>
             <p className="mt-3.5 max-w-[34ch] text-sm text-muted-foreground">

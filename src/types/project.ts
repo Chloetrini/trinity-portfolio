@@ -17,4 +17,5 @@ export interface Project {
   secondaryLabel?: string;
   adminShot?: string;
   adminLabel?: string;
+  desktopHomeShot?: string;
 }

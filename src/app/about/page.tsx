@@ -15,18 +15,18 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1180px]">
           <Eyebrow className="mb-5.5">About</Eyebrow>
           <h1 className="text-[clamp(38px,6vw,68px)] leading-[1.12] font-semibold tracking-[-0.01em]">
-            Discipline, pointed at software.
+            Full-stack developer, working with teams worldwide.
           </h1>
           <p className="mt-4.5 max-w-[60ch] text-[19px] text-muted-foreground">
-            I build with the same rigor I graduated with — test the assumption, measure the outcome, don&apos;t ship
-            a guess.
+            Based in Lagos, Nigeria — remote-first, and comfortable owning a project end to end wherever the
+            team sits.
           </p>
         </div>
       </section>
 
       <section className="px-7 py-16">
         <div className="mx-auto grid max-w-[1180px] grid-cols-1 items-start gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="sticky top-[96px] space-y-8">
+          <div className="space-y-8 lg:sticky lg:top-[96px]">
             <Reveal>
               <FloatingTechAvatar />
             </Reveal>
@@ -38,15 +38,14 @@ export default function AboutPage() {
           <div>
             <Reveal>
               <p className="text-base text-foreground">
-                I graduated with First Class Honours from Obafemi Awolowo University — years of data-heavy
-                coursework, rigorous testing, and paying close attention to systems that don&apos;t forgive sloppy
-                work. Somewhere along the way I got pulled into software, and the same instincts carried over:
-                test your assumptions, measure what actually happens, don&apos;t ship a guess.
+                I&apos;m a full-stack developer based in Lagos, Nigeria, building production web apps — event
+                platforms, scouting dashboards, real-estate tools — for clients and teams around the world.
+                Full education and background details are on my CV; here, it&apos;s just about the work.
               </p>
             </Reveal>
 
             <Reveal className="my-10 border-l-2 border-accent pl-5.5 text-[21px] leading-[1.5] font-medium">
-              It wasn&apos;t a reset — it&apos;s the same discipline, pointed at a different kind of system.
+              I&apos;d rather test an assumption than ship a guess.
             </Reveal>
 
             <Timeline />

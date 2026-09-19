@@ -22,7 +22,7 @@ export function ProjectRow({ project, reverse = false, showAdmin = false, showLo
         reverse && "md:grid-cols-[1.15fr_0.85fr]",
       )}
     >
-      <div className={cn("flex justify-center", reverse && "md:order-2")}>
+      <div className={cn("flex justify-center transition-transform duration-500 hover:-translate-y-2", reverse && "md:order-2")}>
         <PhoneMockup src={project.mobileShot} alt={`${project.name} homepage on mobile`} />
       </div>
 
@@ -52,7 +52,7 @@ export function ProjectRow({ project, reverse = false, showAdmin = false, showLo
           {project.stack.map((tech) => (
             <span
               key={tech}
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 font-mono text-[12.5px] text-muted-foreground"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 font-mono text-[12.5px] text-muted-foreground transition-colors hover:border-accent/40 hover:text-accent"
             >
               &lt;/&gt; {tech}
             </span>

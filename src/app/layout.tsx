@@ -3,11 +3,14 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/context/theme.context";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { IntroSplash } from "@/components/layout/IntroSplash";
+import { CursorGlow } from "@/components/layout/CursorGlow";
+import { FloatingContactCard } from "@/components/layout/FloatingContactCard";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Trinity Egbukwu · Software Developer",
-  description: "Trinity Egbukwu — Software developer. Science grad turned software developer.",
+  title: "Trinity Egbukwu · Full-Stack Developer",
+  description: "Trinity Egbukwu — Full-stack developer. First Class Honours grad turned software engineer.",
   icons: { icon: "/favicon.svg" },
 };
 
@@ -32,6 +35,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <ThemeProvider>
+          <IntroSplash />
+          <CursorGlow />
           <div className="relative min-h-screen">
             <div
               aria-hidden
@@ -44,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
             <main className="relative z-1">{children}</main>
             <Footer />
+            <FloatingContactCard />
           </div>
         </ThemeProvider>
       </body>

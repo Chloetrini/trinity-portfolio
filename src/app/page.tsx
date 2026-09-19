@@ -3,6 +3,7 @@ import { Code2, Users, GraduationCap } from "lucide-react";
 
 import { Hero } from "@/components/home/Hero";
 import { TechMarquee } from "@/components/home/TechMarquee";
+import { EventraShowcase } from "@/components/home/EventraShowcase";
 import { ProjectRow } from "@/components/projects/ProjectRow";
 import { Reveal } from "@/components/ui/reveal";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -33,6 +34,8 @@ export default function HomePage() {
     <>
       <Hero />
       <TechMarquee />
+
+      <EventraShowcase />
 
       <section id="work" className="px-7 py-24">
         <div className="mx-auto max-w-[1180px]">
@@ -66,9 +69,13 @@ export default function HomePage() {
           </Reveal>
 
           <div className="mt-15 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {PRINCIPLES.map((p) => (
-              <Reveal key={p.title} className="rounded-[14px] border border-border bg-card p-6.5">
-                <div className="mb-4 flex h-10.5 w-10.5 items-center justify-center rounded-[10px] bg-accent/10 text-accent">
+            {PRINCIPLES.map((p, i) => (
+              <Reveal
+                key={p.title}
+                delay={i * 100}
+                className="group rounded-[14px] border border-border bg-card p-6.5 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-[0_20px_45px_-25px_var(--accent)]"
+              >
+                <div className="mb-4 flex h-10.5 w-10.5 items-center justify-center rounded-[10px] bg-accent/10 text-accent transition-transform duration-300 group-hover:scale-110">
                   <p.icon size={20} />
                 </div>
                 <h4 className="mb-2.5 text-[17px] font-semibold">{p.title}</h4>
@@ -87,7 +94,10 @@ export default function HomePage() {
             <p className="mx-auto mt-4 mb-7.5 max-w-[50ch] text-muted-foreground">
               I&apos;m open to new roles and freelance work. Always happy to talk through an idea.
             </p>
-            <Link href="/contact" className={cn(buttonVariants())}>
+            <Link
+              href="/contact"
+              className={cn(buttonVariants(), "transition-transform hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-12px_var(--accent)]")}
+            >
               Say hello →
             </Link>
           </Reveal>

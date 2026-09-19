@@ -7,12 +7,6 @@ export interface TimelineEntry {
 
 export const TIMELINE: TimelineEntry[] = [
   {
-    when: "2026",
-    tag: "Education",
-    title: "First Class Honours — OAU",
-    body: "Graduated with First Class Honours from Obafemi Awolowo University. The analytical habits from my degree — structured problem-solving, rigorous testing, clear documentation — now show up directly in how I approach engineering.",
-  },
-  {
     when: "Jul – Sep 2026",
     tag: "Internship",
     title: "Full-Stack Developer Internship",
@@ -33,7 +27,7 @@ export const TIMELINE: TimelineEntry[] = [
   {
     when: "Next",
     tag: "Goal",
-    title: "Master's degree abroad",
-    body: "Planning to pursue a master's degree abroad — Canada first, the US as a secondary option — to push my software engineering career further.",
+    title: "Taking on more senior-level ownership",
+    body: "Looking to grow into more architecture and technical-decision responsibility — mentoring, owning systems end-to-end, and pushing into harder problems, with AI tools already woven into how I plan and ship, not something I'm still figuring out.",
   },
 ];

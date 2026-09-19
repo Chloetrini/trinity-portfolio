@@ -1,14 +1,13 @@
-import { Download } from "lucide-react";
+import { Eye } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { CV_URL, GITHUB_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const FIELDS = [
-  { k: "Education", v: "Obafemi Awolowo University" },
-  { k: "Honours", v: "First Class Honours" },
+  { k: "Location", v: "Lagos, Nigeria — remote" },
   { k: "Internships", v: "Tech studio (Jul–Sep 2026) · HNG Internship (from Sep 28, 2026)" },
-  { k: "Looking ahead", v: "Master's abroad — Canada, then US" },
+  { k: "Focus", v: "Deepening backend & systems design, shipping more full-stack products" },
 ];
 
 export function IdCard() {
@@ -34,9 +33,16 @@ export function IdCard() {
         </a>
       </div>
 
-      <a href={CV_URL} download className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "mt-4 w-full")}>
-        Download CV <Download size={14} />
-      </a>
+      <div className="mt-4 flex gap-2">
+        <a
+          href={CV_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "flex-1")}
+        >
+          View Resume <Eye size={14} />
+        </a>
+      </div>
     </div>
   );
 }

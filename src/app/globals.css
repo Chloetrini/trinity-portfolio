@@ -29,6 +29,7 @@
   --color-accent-contrast: var(--accent-contrast);
   --color-amber: var(--amber);
   --color-pink: var(--pink);
+  --color-blue: var(--blue);
 }
 
 /*
@@ -52,6 +53,7 @@
   --accent-contrast: #04120f;
   --amber: #f5c26b;
   --pink: #f0a8d0;
+  --blue: #7dd3fc;
 }
 
 :root.light {
@@ -67,6 +69,7 @@
   --accent: #0f8f7d;
   --accent-strong: #0c7568;
   --accent-contrast: #ffffff;
+  --blue: #0284c7;
 }
 
 body {
@@ -123,4 +126,43 @@ body {
 }
 .animate-float-bob {
   animation: float-bob 4.5s ease-in-out infinite;
+}
+
+/*
+  Orbit animation: an icon revolves around the avatar's center while
+  staying upright (not spinning in place). Two nested elements do this —
+  the outer one sweeps through a full rotation, the inner one counter-
+  rotates at the same pace so the icon itself never visibly turns.
+*/
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes orbit-counter {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+@keyframes orbit-counter-reverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
